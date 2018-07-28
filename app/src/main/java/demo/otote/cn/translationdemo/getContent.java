@@ -58,8 +58,6 @@ public class getContent extends AppCompatActivity {
     }
 
 
-
-
     /***
      * 设置用户自己的appid和密钥
      * @param appid
@@ -92,7 +90,6 @@ public class getContent extends AppCompatActivity {
      * @throws NoSuchAlgorithmException
      */
     public String requestUrl() throws NoSuchAlgorithmException {
-
         String sign=stringToMD5(src);
         Log.d("MD5检验：",src);
         String requesturl=url+"q="+query+"&from="+from+"&to="+to+"&appid="+appid+"&salt="+salt+"&sign="+sign;

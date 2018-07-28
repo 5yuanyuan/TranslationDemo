@@ -34,7 +34,6 @@ public class MyWordRecycleViewActivity extends AppCompatActivity {
 
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +70,6 @@ public class MyWordRecycleViewActivity extends AppCompatActivity {
         return list;
 
     }
-
-
-
 
     public void loadmyword(){
         final ArrayList<String> list=inputtomyword();

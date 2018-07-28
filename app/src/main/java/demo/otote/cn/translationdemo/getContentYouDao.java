@@ -54,8 +54,6 @@ public class getContentYouDao extends AppCompatActivity {
     }
 
 
-
-
     /***
      * 设置用户自己的appid和密钥
      * @param appid

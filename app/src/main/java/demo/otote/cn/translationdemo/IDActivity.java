@@ -34,10 +34,7 @@ public class IDActivity extends AppCompatActivity {
     private Button mBtnSet;
     private RadioGroup radioGroup;
     private RadioButton radioButton1,radioButton2;
-
-
-
-    private String choose;
+    private String choose;//选择翻译源
 
     public void setChoose(String choose) {
         this.choose = choose;
@@ -90,11 +87,12 @@ public class IDActivity extends AppCompatActivity {
                         break;
                 }
                 ToastUtil.showToast(IDActivity.this,radioButton.getText().toString());
-
             }
         });
 
-
+        /***
+         * 设置监听  将翻译源  id 和密钥存入内存
+         */
         mBtnSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,7 +126,10 @@ public class IDActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    /***
+     * 读取内存中的翻译源 id 和密钥
+     * @return
+     */
     public String[] readerVlaue() {
         //读取数据
         File dir = getApplicationContext().getFilesDir();//查找这个应用下的所有文件所在的目录

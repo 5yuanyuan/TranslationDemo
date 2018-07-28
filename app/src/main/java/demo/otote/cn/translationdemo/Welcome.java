@@ -26,14 +26,14 @@ public class Welcome extends AppCompatActivity{
         boolean isfer = shared.getBoolean("isfer", true);
         SharedPreferences.Editor editor = shared.edit();
         if (isfer) {
-            //第一次进入跳转
+            //第一次进入跳转到欢迎界面
             Intent in = new Intent(Welcome.this, GuideActivity.class);
             startActivity(in);
             finish();
             editor.putBoolean("isfer", false);
             editor.commit();
         } else {
-            //第二次进入跳转
+            //直接计入应用
             Intent in = new Intent(Welcome.this,MainActivity.class);
             startActivity(in);
             finish();

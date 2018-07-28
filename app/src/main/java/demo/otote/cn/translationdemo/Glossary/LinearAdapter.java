@@ -30,7 +30,6 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     private ArrayList<String> mTitle;
     private MyHistory myHistory;
 
-
     public LinearAdapter(Context context,ArrayList<String> title){
         this.context=context;
         this.mTitle=title;
@@ -157,7 +156,5 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
         }
 
     }
-
-
 }
 

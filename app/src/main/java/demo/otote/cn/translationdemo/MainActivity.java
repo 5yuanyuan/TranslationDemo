@@ -57,6 +57,7 @@ import demo.otote.cn.translationdemo.Glossary.MyWordRecycleViewActivity;
 import demo.otote.cn.translationdemo.Glossary.MyHistory;
 import demo.otote.cn.translationdemo.Glossary.MyOpenHelper;
 
+@SuppressWarnings("all")
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -155,8 +156,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-
-
                 String[] strs = readerVlaue();
                 if (strs == null) {
                     ToastUtil.showToast(MainActivity.this,"请先设置appid和密钥");
@@ -173,7 +172,6 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-
 
         /***
          * 交换源语言和目标语言
@@ -258,10 +256,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -328,7 +322,6 @@ public class MainActivity extends AppCompatActivity
     public void setOgId(int ogId) {
         this.OgId = ogId;
     }
-
 
     /***
      * 发音
@@ -479,9 +472,6 @@ public class MainActivity extends AppCompatActivity
             temp=1;
         }
 
-
-
-
         //过滤换行符
         Pattern CRLF = Pattern.compile("(\r\n|\r|\n|\n\r)");
         Matcher m = CRLF.matcher(info);
@@ -509,7 +499,6 @@ public class MainActivity extends AppCompatActivity
         setUrl(voice);
         String result="";
 
-
         if(errorcode.equals("0")){
             if(explain==null||terms==null){
                 result=query+"    "+"\n"+tranresult;
@@ -520,7 +509,6 @@ public class MainActivity extends AppCompatActivity
             ToastUtil.showToast(MainActivity.this,"errorcode:"+errorcode);
             return;
         }
-
 
         SpannableStringBuilder myWord=new SpannableStringBuilder();
 
@@ -563,6 +551,7 @@ public class MainActivity extends AppCompatActivity
               if (mTvResult.getText().toString()!=null){
                  mTvResult.setVisibility(View.VISIBLE);
                   String word=mEtInput.getText().toString();
+                  Log.d("输入内容:",word);
                   String wordtoresult=mTvResult.getText().toString();
                   String s=tranresult.replace("\n","");
                   if (temp==0){
@@ -583,7 +572,6 @@ public class MainActivity extends AppCompatActivity
             public void onClick(DialogInterface dialogInterface, int i) {
                 ToastUtil.showToast(MainActivity.this,"已选择"+array[i]);
                 Log.d("选择的语言",array[i]);
-
                 setOgId(i);
                 mBtnOriginal.setText(array[i].toString());
 
@@ -658,7 +646,6 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
-
         if(info==null){
             info = mEtInput.getText().toString();
             if(TextUtils.isEmpty(mEtInput.getText())) {
@@ -670,7 +657,6 @@ public class MainActivity extends AppCompatActivity
             temp=1;
         }
 
-//        content.setValue("20171011000087591","ZTCURMjynacAQKti1CAd");
 
         content.setValue(strs[0], strs[1]);
         content.setQuery(info);
@@ -720,7 +706,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     public ArrayList<String> inputtohistory(){
         ArrayList<String> list=new ArrayList<String>();
         String[] arr;
@@ -744,9 +729,6 @@ public class MainActivity extends AppCompatActivity
 
 
     public void loadHistory(){
-
-
-
         final ArrayList<String> list=inputtohistory();
         Log.d("获取的数组结果：",list.toString());
         mRvMain=findViewById(R.id.rv_main);
@@ -764,8 +746,6 @@ public class MainActivity extends AppCompatActivity
                 click1(view,s[0],s[1]);
             }
         });
-
-
 
         //      调用文本返回事件回调的方法
         linearAdapter.textviewonSetOnclick(new LinearAdapter.TextViewInterface() {
@@ -814,8 +794,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
-
-
 
 }
 
